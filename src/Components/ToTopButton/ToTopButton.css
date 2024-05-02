@@ -1,0 +1,32 @@
+@import url('../Colors.css');
+
+.up-btn {
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    position: fixed;
+    bottom: 24px;
+    right: 48px;
+    padding: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    outline: inherit;
+    transition: all 0.4s ease;
+}
+
+.up-btn:hover {
+    font-weight: bolder;
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 767px) {
+    .up-btn {
+        padding: 16px;
+        bottom: 16px;
+        right: 16px;
+    }
+}

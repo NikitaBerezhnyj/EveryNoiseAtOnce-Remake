@@ -1,0 +1,70 @@
+@import url('../Colors.css');
+
+header {
+    padding: 24px 0 8px 0;
+    box-shadow: 10px 10px 10px #5353533d;
+    background-color: var(--background-color);
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 2rem;
+    line-height: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.title a {
+    width: fit-content;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.5s ease;
+}
+
+.title a:hover {
+    color: var(--primary-color);
+}
+
+.title a:hover img {
+    filter: invert(47%) sepia(35%) saturate(5151%) hue-rotate(201deg) brightness(101%) contrast(101%);
+}
+
+
+/* .title a:hover img {
+    filter: invert(47%) sepia(35%) saturate(5151%) hue-rotate(201deg) brightness(101%) contrast(101%);
+} */
+
+.title img {
+    width: 25px;
+    margin-left: 8px;
+}
+
+.sort-container a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+}
+
+.sort-container a:hover {
+    color: var(--accent-color);
+}
+
+.sort-container a.active {
+    font-weight: bolder;
+    color: var(--primary-color);
+}
+
+.sort-container a.active:hover {
+    font-weight: bolder;
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 420px) {
+    .title {
+        font-size: 1.75rem;
+    }
+}

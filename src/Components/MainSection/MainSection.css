@@ -1,0 +1,322 @@
+.main-container {
+    padding-top: 24px;
+    background-color: var(--background-color);
+    margin-bottom: 16px;
+}
+
+.bookmark {
+    width: 24px;
+    height: 24px;
+    border: var(--secondary-color) 1px solid;
+    background-color: none;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookmark:hover {
+    transform: scale(1.25);
+    background-color: var(--secondary-color);
+}
+
+.bookmark.active {
+    background-color: var(--secondary-color);
+    transition: all 0.5s ease;
+}
+
+.bookmark.active:hover {
+    background-color: var(--secondary-color);
+}
+
+.func-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    padding: 0 16px;
+}
+
+.func-sort-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 8px;
+}
+
+.func-sort-container span {
+    font-weight: bolder;
+}
+
+.func-sort-container select {
+    margin-left: 8px;
+    width: max-content;
+}
+
+.func-btn {
+    border-radius: 25px;
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+
+.func-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    transform: scale(1.05);
+}
+
+.func-search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    padding: 0;
+}
+
+.func-search input {
+    height: 100%;
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 8px 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.func-search input:focus {
+    outline: none;
+}
+
+.func-search button {
+    outline: none;
+    font-size: 18px;
+    height: 100%;
+    color: var(--background-color);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-left: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.func-search button:hover {
+    color: var(--secondary-color);
+}
+
+.note {
+    color: var(--text-color);
+}
+
+.current,
+.current td.note a {
+    font-weight: bold;
+}
+
+table {
+    margin-left: 16px;
+    margin-bottom: 36px;
+}
+
+td {
+    padding-right: 8px;
+}
+
+tr {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+tr:hover {
+    opacity: 0.75;
+    transform: scale(1.05);
+}
+
+.songtitle {
+    visibility: hidden;
+}
+
+tr:hover .songtitle {
+    visibility: visible;
+    color: #ff3333;
+}
+
+tr.linehere td {
+    border-top: 1px solid #ccc;
+}
+
+.plusminus {
+    visibility: hidden;
+    color: #888;
+    padding-left: 4px;
+}
+
+tr:hover .plusminus {
+    visibility: visible;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+a:hover {
+    transform: scale(1.05);
+}
+
+a[href=''] {
+    display: none;
+}
+
+.personal {
+    color: #ff8c00;
+}
+
+.song {
+    cursor: pointer;
+}
+
+.song:hover {
+    color: #ff3333;
+}
+
+.spotify-container-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 36px;
+}
+
+.spotify-container {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    height: fit-content;
+    text-align: center;
+    font-size: 2rem;
+    background-color: #121212;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.spotify-container-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.spotify-container-header a {
+    font-size: 1rem;
+}
+
+.genreLink-container {
+    width: 100%;
+    height: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#genreLink {
+    margin: 0;
+}
+
+.spotify-container-decor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spotify-container iframe {
+    margin-bottom: 16px;
+}
+
+.spotify-container a {
+    width: fit-content;
+    margin: auto;
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.spotify-container a span {
+    color: #1db954;
+}
+
+.spotify-container-decor-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.spotify-container-decor {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Spotify container circles */
+.spotify-container-decor div {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.red-circle {
+    background-color: #f95359;
+    margin-right: 4px;
+}
+
+.yellow-circle {
+    background-color: #fabb33;
+    margin-right: 4px;
+}
+
+.green-circle {
+    background-color: #1cd439;
+}
+
+/* Варіант для вертикального відображення елементів функціонального блоку */
+/* @media screen and (max-width: 990px) {
+    .func-container {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .func-sort-container {
+        margin-bottom: 8px;
+    }
+
+    .func-btn {
+        margin-left: 0;
+        margin-bottom: 8px;
+    }
+} */
+
+/* Варіант для горизонтально відображення елементів функціонального блоку зі скролом по горизонталі */
+@media screen and (max-width: 990px) {
+    .func-container {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: visible;
+        white-space: nowrap;
+        padding-bottom: 16px;
+    }
+
+    .func-sort-container {
+        width: max-content;
+    }
+}

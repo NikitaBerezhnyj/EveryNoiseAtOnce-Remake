@@ -1,0 +1,12 @@
+:root {
+ --background-color: #f5f5f5;
+ /* Основний фон */
+ --text-color: #333333;
+ /* Колір тексту */
+ --accent-color: #85a3ff;
+ /* Трохи темніший синій */
+ --primary-color: #3586ff;
+ /* Синій */
+ --secondary-color: #ffd166;
+ /* Жовтий */
+}

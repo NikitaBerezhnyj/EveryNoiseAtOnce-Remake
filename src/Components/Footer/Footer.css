@@ -1,0 +1,11 @@
+@import url('../Colors.css');
+
+footer {
+    font-size: 1rem;
+    padding: 8px 0 48px 0;
+    background-color: var(--background-color);
+}
+
+footer p {
+    color: var(--text-color);
+}
