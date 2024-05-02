@@ -5,7 +5,7 @@ Every Noise At Once (Remake) repository has [Ukrainian :ukraine:](#every-noise-a
 ## Every Noise At Once (Remake) :ukraine:
 
 <p align="center">
-  <img src='./every-noise-at-once/public/img/icon.png' alt='Лого сайту' center style='width: 25%'>
+  <img src='./public/img/icon.png' alt='Лого сайту' center style='width: 25%'>
 </p>
 
 **_Every Noise At Once (Remake)_** - це проект, що є редизайном сайту <a href="" target="_blank">Every Noise At Once</a> з використанням React. Це некомерційний проект і не призначений для монетизації. Редизайн черпає натхнення з оригінальних веб-ресурсів, створених <a href="https://twitter.com/everynoise" target="_blank">@EveryNoise</a> - <a href="http://furia.com" target="_blank">Glenn McDonald</a>.
@@ -30,7 +30,7 @@ Every Noise At Once (Remake) repository has [Ukrainian :ukraine:](#every-noise-a
 ## Every Noise At Once (Remake) :uk:
 
 <p align="center">
-  <img src='./every-noise-at-once/public/img/icon.png' alt='Logo of web site' center style='width: 25%'>
+  <img src='./public/img/icon.png' alt='Logo of web site' center style='width: 25%'>
 </p>
 
 **_Every Noise At Once (Remake)_** - is a project that redesigns the <a href="" target="_blank">Every Noise At Once</a> website using React. This is a non-commercial project and is not intended for monetization. The redesign takes inspiration from the original web resources created by a href="https://twitter.com/everynoise" target="\_blank">@EveryNoise</a> - <a href="http://furia.com" target="_blank">Glenn McDonald</a>.
