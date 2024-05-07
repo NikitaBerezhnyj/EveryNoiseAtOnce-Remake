@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from "../../Database/Genres.json";
 import "./MainSection.css";
 
@@ -7,8 +7,19 @@ export default function MainSection() {
   const [activeBookmark, setActiveBookmark] = useState(
     localStorage.getItem("activeBookmark") || null
   );
+  const [crossedGenres, setCrossedGenres] = useState(() => {
+    const storedGenres = localStorage.getItem("crossedGenres");
+    return storedGenres ? JSON.parse(storedGenres) : [];
+  });
   const [searchResults, setSearchResults] = useState([]);
   const [searchNotFound, setSearchNotFound] = useState(false);
+
+  useEffect(() => {
+    // Позначаємо класом "crossed" жанри, які зберігаються в localStorage
+    crossedGenres.forEach((genre) => {
+      handleCrossedGenre(genre);
+    });
+  }, []);
 
   const linksync = (url, index, genreName) => {
     const spotifyElement = document.getElementById("spotify");
@@ -38,6 +49,13 @@ export default function MainSection() {
       return 0;
     });
     return sorted;
+  };
+
+  const handleCrossedGenre = (genreName) => {
+    const genre = document.getElementById(genreName);
+    if (genre) {
+      genre.classList.add("crossed");
+    }
   };
 
   const handleBookmarkClick = (genreName) => {
@@ -80,10 +98,9 @@ export default function MainSection() {
     const randomGenre = data[randomGenreIndex];
     const spotifyLink = randomGenre.spotify_link;
 
-    // Оновлення src та посилання
     document.getElementById("spotify").src = spotifyLink;
     document.getElementById("spotifyLink").setAttribute("href", spotifyLink);
-    // Прокручування сторінки до елементу spotify
+
     const spotifyElement = document.getElementById("spotify");
     var headerOffset = 150;
     var elementPosition = spotifyElement.getBoundingClientRect().top;
@@ -176,9 +193,12 @@ export default function MainSection() {
                           className="note"
                           target="spotify"
                           title="See this playlist"
-                          onClick={() =>
-                            linksync(item.spotify_link, index, item.name)
-                          }
+                          onClick={() => {
+                            linksync(item.spotify_link, index, item.name);
+                            handleCrossedGenre(
+                              item.name.replace(/\s+/g, "") + "-title"
+                            );
+                          }}
                         >
                           &#x260A;
                         </a>
@@ -188,6 +208,12 @@ export default function MainSection() {
                           href={item.spotify_link_open}
                           title="Open playlist in Spotify"
                           style={{ color: item.color }}
+                          id={item.name.replace(/\s+/g, "") + "-title"}
+                          onClick={() => {
+                            handleCrossedGenre(
+                              item.name.replace(/\s+/g, "") + "-title"
+                            );
+                          }}
                         >
                           {item.name}
                         </a>

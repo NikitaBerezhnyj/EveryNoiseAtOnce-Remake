@@ -118,6 +118,10 @@
     color: var(--text-color);
 }
 
+.crossed {
+    text-decoration: line-through;
+}
+
 .current,
 .current td.note a {
     font-weight: bold;
