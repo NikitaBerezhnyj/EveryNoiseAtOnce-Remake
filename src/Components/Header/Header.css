@@ -1,7 +1,7 @@
 @import url('../Colors.css');
 
 header {
-    padding: 24px 0 8px 0;
+    padding: 8px 0 8px 0;
     box-shadow: 10px 10px 10px #5353533d;
     background-color: var(--background-color);
     margin-bottom: 16px;
@@ -15,7 +15,7 @@ header {
     color: var(--text-color);
 }
 
-.title a {
+.title button {
     width: fit-content;
     display: flex;
     justify-content: start;
@@ -23,13 +23,16 @@ header {
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.5s ease;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    border: none;
 }
 
-.title a:hover {
+.title button:hover {
     color: var(--primary-color);
 }
 
-.title a:hover img {
+.title button:hover img {
     filter: invert(47%) sepia(35%) saturate(5151%) hue-rotate(201deg) brightness(101%) contrast(101%);
 }
 

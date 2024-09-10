@@ -7,7 +7,7 @@
 .bookmark {
     width: 24px;
     height: 24px;
-    border: var(--secondary-color) 1px solid;
+    border: 1.5px solid black;
     background-color: none;
     transition: all 0.5s ease;
     cursor: pointer;
@@ -291,6 +291,7 @@ a[href=''] {
 
 .green-circle {
     background-color: #1cd439;
+    margin-right: 4px;
 }
 
 /* Варіант для вертикального відображення елементів функціонального блоку */

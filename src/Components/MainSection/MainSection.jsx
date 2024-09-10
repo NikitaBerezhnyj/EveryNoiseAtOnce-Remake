@@ -7,20 +7,37 @@ export default function MainSection() {
   const [activeBookmark, setActiveBookmark] = useState(
     localStorage.getItem("activeBookmark") || null
   );
+
+  // Ініціалізуємо стан crossedGenres з localStorage або з порожнього масиву
   const [crossedGenres, setCrossedGenres] = useState(() => {
     const storedGenres = localStorage.getItem("crossedGenres");
     return storedGenres ? JSON.parse(storedGenres) : [];
   });
+
   const [searchResults, setSearchResults] = useState([]);
   const [searchNotFound, setSearchNotFound] = useState(false);
 
+  // Синхронізуємо crossedGenres з localStorage
   useEffect(() => {
-    // Позначаємо класом "crossed" жанри, які зберігаються в localStorage
-    crossedGenres.forEach((genre) => {
-      handleCrossedGenre(genre);
-    });
-  }, []);
+    localStorage.setItem("crossedGenres", JSON.stringify(crossedGenres));
+  }, [crossedGenres]);
 
+  // Синхронізуємо activeBookmark з localStorage
+  useEffect(() => {
+    localStorage.setItem("activeBookmark", activeBookmark);
+  }, [activeBookmark]);
+
+  // Встановлює класи для перекреслених жанрів при завантаженні сторінки
+  useEffect(() => {
+    crossedGenres.forEach((genreName) => {
+      const genre = document.getElementById(genreName);
+      if (genre) {
+        genre.classList.add("crossed");
+      }
+    });
+  }, [crossedGenres]);
+
+  //
   const linksync = (url, index, genreName) => {
     const spotifyElement = document.getElementById("spotify");
     var headerOffset = 150;
@@ -37,6 +54,7 @@ export default function MainSection() {
       .setAttribute("href", url.split("=")[1]);
   };
 
+  // Сортування даних за типом
   const sortData = (type, items) => {
     const sorted = [...items].sort((a, b) => {
       if (type === "name") {
@@ -51,23 +69,29 @@ export default function MainSection() {
     return sorted;
   };
 
+  // Додає або видаляє жанр із перетнутих жанрів
   const handleCrossedGenre = (genreName) => {
     const genre = document.getElementById(genreName);
     if (genre) {
-      genre.classList.add("crossed");
+      genre.classList.toggle("crossed");
+      if (!crossedGenres.includes(genreName)) {
+        setCrossedGenres([...crossedGenres, genreName]);
+      } else {
+        setCrossedGenres(crossedGenres.filter((item) => item !== genreName));
+      }
     }
   };
 
+  // Додає або видаляє закладку на жанр
   const handleBookmarkClick = (genreName) => {
     if (activeBookmark !== genreName) {
       setActiveBookmark(genreName);
-      localStorage.setItem("activeBookmark", genreName);
     } else {
       setActiveBookmark(null);
-      localStorage.removeItem("activeBookmark");
     }
   };
 
+  // Пошук жанрів за ключовим словом
   const searchByWord = () => {
     const searchTerm = document
       .getElementById("search-line")
@@ -79,6 +103,7 @@ export default function MainSection() {
     setSearchNotFound(results.length === 0);
   };
 
+  // Очищення результатів пошуку при зміні введення
   const handleInputChange = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     if (searchTerm === "") {
@@ -87,12 +112,14 @@ export default function MainSection() {
     }
   };
 
+  // Виклик пошуку за Enter
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       searchByWord();
     }
   };
 
+  // Отримання випадкового жанру
   const randomGenre = () => {
     const randomGenreIndex = Math.floor(Math.random() * data.length);
     const randomGenre = data[randomGenreIndex];
@@ -100,16 +127,6 @@ export default function MainSection() {
 
     document.getElementById("spotify").src = spotifyLink;
     document.getElementById("spotifyLink").setAttribute("href", spotifyLink);
-
-    const spotifyElement = document.getElementById("spotify");
-    var headerOffset = 150;
-    var elementPosition = spotifyElement.getBoundingClientRect().top;
-    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
   };
 
   return (
@@ -230,9 +247,9 @@ export default function MainSection() {
                 <div className="spotify-container-header">
                   <div className="spotify-container-decor-container">
                     <div className="spotify-container-decor">
-                      <div className="red-circle"></div>
-                      <div className="yellow-circle"></div>
                       <div className="green-circle"></div>
+                      <div className="yellow-circle"></div>
+                      <div className="red-circle"></div>
                     </div>
                   </div>
                 </div>
